@@ -1,53 +1,53 @@
 {
-  "name": "n8n-nodes-<...>",
-  "version": "0.1.0",
-  "description": "",
-  "keywords": [
-    "n8n-community-node-package"
-  ],
-  "license": "MIT",
-  "homepage": "",
-  "author": {
-    "name": "",
-    "email": ""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
-  },
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc && gulp build:icons",
-    "dev": "tsc --watch",
-    "format": "prettier nodes credentials --write",
-    "lint": "tslint -p tsconfig.json -c tslint.json && eslint nodes credentials package.json",
-    "lintfix": "tslint --fix -p tsconfig.json -c tslint.json && eslint nodes credentials package.json --fix",
-    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
-  },
-  "files": [
-    "dist"
-  ],
-  "n8n": {
-    "n8nNodesApiVersion": 1,
-    "credentials": [
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
-    ],
-    "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
-    ]
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.6",
-    "@types/request-promise-native": "~1.0.15",
-    "@typescript-eslint/parser": "^5.29.0",
-    "eslint-plugin-n8n-nodes-base": "^1.5.4",
-    "gulp": "^4.0.2",
-    "n8n-core": "^0.125.0",
-    "n8n-workflow": "^0.107.0",
-    "prettier": "^2.7.1",
-    "tslint": "^6.1.2",
-    "typescript": "~4.6.0"
-  }
+	"name": "n8n-nodes-nano",
+	"version": "0.1.0",
+	"description": "This is my nodes",
+	"keywords": [
+		"n8n-community-node-package"
+	],
+	"license": "MIT",
+	"homepage": "",
+	"author": {
+		"name": "Duc Pham",
+		"email": "ducpmm@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/germanynick/n8n-nodes-nano.git"
+	},
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc && gulp build:icons",
+		"dev": "tsc --watch && n8n start",
+		"format": "prettier nodes credentials --write",
+		"n8n": "n8n start",
+		"lint": "tslint -p tsconfig.json -c tslint.json && eslint nodes credentials package.json",
+		"lintfix": "tslint --fix -p tsconfig.json -c tslint.json && eslint nodes credentials package.json --fix",
+		"prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"credentials": [
+			"dist/credentials/ExampleCredentialsApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/ExampleNode/ExampleNode.node.js"
+		]
+	},
+	"devDependencies": {
+		"@types/express": "^4.17.13",
+		"@types/request-promise-native": "~1.0.18",
+		"@typescript-eslint/parser": "^5.35.1",
+		"eslint-plugin-n8n-nodes-base": "^1.6.5",
+		"gulp": "^4.0.2",
+		"n8n": "0.192.0",
+		"n8n-core": "^0.132.0",
+		"n8n-workflow": "^0.114.0",
+		"prettier": "^2.7.1",
+		"tslint": "^6.1.3",
+		"typescript": "~4.7.4"
+	}
 }
