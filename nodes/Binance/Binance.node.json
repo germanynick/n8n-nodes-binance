@@ -1,0 +1,10 @@
+{
+	"node": "n8n-nodes-nano.binance",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Crypto Currency"],
+	"resources": {
+		"credentialDocumentation": [],
+		"primaryDocumentation": []
+	}
+}
