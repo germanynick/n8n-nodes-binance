@@ -1,6 +1,6 @@
 import { INodeProperties } from 'n8n-workflow';
 
-export const IntervalProperty: INodeProperties = {
+export const intervalProperty: INodeProperties = {
 	displayName: 'Interval',
 	name: 'interval',
 	type: 'options',

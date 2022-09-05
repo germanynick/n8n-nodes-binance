@@ -1,7 +1,7 @@
 /* eslint-disable n8n-nodes-base/node-param-options-type-unsorted-items */
 import { INodeProperties } from 'n8n-workflow';
 
-export const FutureOperationProperty: INodeProperties = {
+export const futureOperationProperty: INodeProperties = {
 	displayName: 'Operation',
 	name: 'operation',
 	type: 'options',

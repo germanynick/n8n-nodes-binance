@@ -20,7 +20,7 @@
 		"sourceMap": true,
 		"esModuleInterop": true,
 		"useUnknownInCatchVariables": false,
-		
+		"skipLibCheck": true
 	},
 	"include": [
 		"credentials/**/*",

@@ -13,12 +13,7 @@ module.exports = {
 		sourceType: 'module',
 		extraFileExtensions: ['.json'],
 	},
-	ignorePatterns: [
-		'.eslintrc.js',
-		'**/*.js',
-		'**/node_modules/**',
-		'**/dist/**',
-	],
+	ignorePatterns: ['.eslintrc.js', '**/*.js', '**/node_modules/**', '**/dist/**'],
 
 	overrides: [
 		{
@@ -27,7 +22,7 @@ module.exports = {
 			extends: ['plugin:n8n-nodes-base/community'],
 			rules: {
 				'n8n-nodes-base/community-package-json-name-still-default': 'off',
-			}
+			},
 		},
 		{
 			files: ['./credentials/**/*.ts'],
@@ -48,6 +43,7 @@ module.exports = {
 				'n8n-nodes-base/node-param-fixed-collection-type-unsorted-items': 'off',
 				'n8n-nodes-base/node-execute-block-operation-missing-singular-pairing': 'off',
 				'n8n-nodes-base/node-execute-block-operation-missing-plural-pairing': 'off',
+				'@typescript-eslint/no-explicit-any': 'off',
 			},
 		},
 	],

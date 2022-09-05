@@ -1,6 +1,6 @@
 import { INodeProperties } from 'n8n-workflow';
 
-export const FutureSymbolProperty: INodeProperties = {
+export const futureSymbolProperty: INodeProperties = {
 	displayName: 'Symbol Name or ID',
 	name: 'symbol',
 	type: 'options',
@@ -16,10 +16,12 @@ export const FutureSymbolProperty: INodeProperties = {
 	default: '',
 };
 
-export const FutureIntervalProperty: INodeProperties = {
-	displayName: 'Interval',
+export const futureIntervalProperty: INodeProperties = {
+	displayName: 'Interval Name or ID',
 	name: 'interval',
 	type: 'options',
+	description:
+		'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>',
 	required: true,
 	displayOptions: {
 		show: { resource: ['future'], operation: ['candle'] },
@@ -30,7 +32,7 @@ export const FutureIntervalProperty: INodeProperties = {
 	default: '',
 };
 
-export const FutureLimitProperty: INodeProperties = {
+export const futureLimitProperty: INodeProperties = {
 	displayName: 'Limit',
 	name: 'limit',
 	type: 'number',
@@ -46,7 +48,7 @@ export const FutureLimitProperty: INodeProperties = {
 	default: 50,
 };
 
-export const FutureStartTimeProperty: INodeProperties = {
+export const futureStartTimeProperty: INodeProperties = {
 	displayName: 'Start Time',
 	name: 'startTime',
 	type: 'dateTime',
@@ -56,7 +58,7 @@ export const FutureStartTimeProperty: INodeProperties = {
 	default: '',
 };
 
-export const FutureEndTimeProperty: INodeProperties = {
+export const futureEndTimeProperty: INodeProperties = {
 	displayName: 'End Time',
 	name: 'endTime',
 	type: 'dateTime',
@@ -66,7 +68,7 @@ export const FutureEndTimeProperty: INodeProperties = {
 	default: '',
 };
 
-export const FutureQuantityProperty: INodeProperties = {
+export const futureQuantityProperty: INodeProperties = {
 	displayName: 'Quantity',
 	name: 'quantity',
 	type: 'number',
@@ -77,7 +79,7 @@ export const FutureQuantityProperty: INodeProperties = {
 	default: 0,
 };
 
-export const FuturePriceProperty: INodeProperties = {
+export const futurePriceProperty: INodeProperties = {
 	displayName: 'Price',
 	name: 'price',
 	type: 'number',

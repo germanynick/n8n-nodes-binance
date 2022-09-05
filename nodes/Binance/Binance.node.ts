@@ -1,4 +1,5 @@
 import {
+	ICredentialTestFunction,
 	IDataObject,
 	IExecuteFunctions,
 	ILoadOptionsFunctions,
@@ -9,16 +10,16 @@ import {
 } from 'n8n-workflow';
 import createBinance, { Binance as BinanceClient, CandleChartInterval_LT } from 'binance-api-node';
 import {
-	FutureEndTimeProperty,
-	FutureIntervalProperty,
-	FutureLimitProperty,
-	FutureOperationProperty,
-	FuturePriceProperty,
-	FutureQuantityProperty,
-	FutureStartTimeProperty,
-	FutureSymbolProperty,
-	ResourceProperty,
-	SpotOperationProperty,
+	futureEndTimeProperty,
+	futureIntervalProperty,
+	futureLimitProperty,
+	futureOperationProperty,
+	futurePriceProperty,
+	futureQuantityProperty,
+	futureStartTimeProperty,
+	futureSymbolProperty,
+	resourceProperty,
+	spotOperationProperty,
 } from './properties';
 
 const EXECUTORS: any = {
@@ -29,7 +30,7 @@ const EXECUTORS: any = {
 	future: {
 		exchange: (binanceClient: BinanceClient) => binanceClient.futuresExchangeInfo(),
 		account: (binanceClient: BinanceClient) => binanceClient.futuresAccountInfo(),
-		candle: function (this: IExecuteFunctions, binanceClient: BinanceClient) {
+		candle(this: IExecuteFunctions, binanceClient: BinanceClient) {
 			const symbol = this.getNodeParameter('symbol', 0) as string;
 			const interval = this.getNodeParameter('interval', 0) as CandleChartInterval_LT;
 			const limit = this.getNodeParameter('limit', 0) as number;
@@ -46,7 +47,7 @@ const EXECUTORS: any = {
 				endTime: new Date(endTime).getTime(),
 			});
 		},
-		buy: function (this: IExecuteFunctions, binanceClient: BinanceClient) {
+		buy(this: IExecuteFunctions, binanceClient: BinanceClient) {
 			const symbol = this.getNodeParameter('symbol', 0) as string;
 			const quantity = this.getNodeParameter('quantity', 0) as string;
 			const price = this.getNodeParameter('price', 0) as string;
@@ -60,7 +61,7 @@ const EXECUTORS: any = {
 				timeInForce: 'GTC',
 			});
 		},
-		sell: function (this: IExecuteFunctions, binanceClient: BinanceClient) {
+		sell(this: IExecuteFunctions, binanceClient: BinanceClient) {
 			const symbol = this.getNodeParameter('symbol', 0) as string;
 			const quantity = this.getNodeParameter('quantity', 0) as string;
 			const price = this.getNodeParameter('price', 0) as string;
@@ -92,16 +93,16 @@ export class Binance implements INodeType {
 		group: ['Binance'],
 		credentials: [{ name: 'binanceApi', required: true }],
 		properties: [
-			ResourceProperty,
-			SpotOperationProperty,
-			FutureOperationProperty,
-			FutureSymbolProperty,
-			FutureIntervalProperty,
-			FutureQuantityProperty,
-			FuturePriceProperty,
-			FutureLimitProperty,
-			FutureStartTimeProperty,
-			FutureEndTimeProperty,
+			resourceProperty,
+			spotOperationProperty,
+			futureOperationProperty,
+			futureSymbolProperty,
+			futureIntervalProperty,
+			futureQuantityProperty,
+			futurePriceProperty,
+			futureLimitProperty,
+			futureStartTimeProperty,
+			futureEndTimeProperty,
 		],
 	};
 
@@ -119,14 +120,12 @@ export class Binance implements INodeType {
 		return [this.helpers.returnJsonArray(response)];
 	}
 
-	methods?:
-		| {
-				loadOptions?:
-					| { [key: string]: (this: ILoadOptionsFunctions) => Promise<INodePropertyOptions[]> }
-					| undefined;
-				credentialTest?: {} | undefined;
-		  }
-		| undefined = {
+	methods?: {
+		loadOptions?:
+			| { [key: string]: (this: ILoadOptionsFunctions) => Promise<INodePropertyOptions[]> }
+			| undefined;
+		credentialTest?: { [functionName: string]: ICredentialTestFunction } | undefined;
+	} = {
 		loadOptions: {
 			async getSymbols(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				const credentials = await this.getCredentials('binanceApi');

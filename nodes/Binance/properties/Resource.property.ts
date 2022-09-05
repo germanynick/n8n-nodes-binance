@@ -1,6 +1,6 @@
 import { INodeProperties } from 'n8n-workflow';
 
-export const ResourceProperty: INodeProperties = {
+export const resourceProperty: INodeProperties = {
 	displayName: 'Resource',
 	name: 'resource',
 	type: 'options',
