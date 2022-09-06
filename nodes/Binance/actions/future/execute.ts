@@ -2,7 +2,8 @@ import { INodeExecutionData } from 'n8n-workflow';
 
 import { IExecuteFunctions } from 'n8n-core';
 
-import * as order_open from './order';
+import * as order from './order';
+import * as candle from './candle';
 
 export async function execute(
 	this: IExecuteFunctions,
@@ -12,7 +13,9 @@ export async function execute(
 
 	switch (operation) {
 		case 'order':
-			return order_open.execute.call(this, index);
+			return order.execute.call(this, index);
+		case 'candle':
+			return candle.execute.call(this, index);
 		default:
 			return [];
 	}

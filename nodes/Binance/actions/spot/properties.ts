@@ -28,7 +28,7 @@ export const properties: INodeProperties[] = [
 			},
 			{
 				name: 'Candle',
-				value: 'kline',
+				value: 'candle',
 				description: 'Get the candles',
 				action: 'Get the candles',
 			},

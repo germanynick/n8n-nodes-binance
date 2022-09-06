@@ -1,6 +1,7 @@
 import { INodeProperties } from 'n8n-workflow';
 
 import * as order from './order';
+import * as candle from './candle';
 
 export const properties: INodeProperties[] = [
 	{
@@ -22,7 +23,7 @@ export const properties: INodeProperties[] = [
 			},
 			{
 				name: 'Candle',
-				value: 'kline',
+				value: 'candle',
 				description: 'Get the candles',
 				action: 'Get the candles',
 			},
@@ -43,4 +44,5 @@ export const properties: INodeProperties[] = [
 	},
 
 	...order.properties,
+	...candle.properties,
 ];

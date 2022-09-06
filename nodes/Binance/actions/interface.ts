@@ -1,9 +1,9 @@
 import { AllEntities, Entity, PropertiesOf } from 'n8n-workflow';
 
 type IBinanceMap = {
-	spot: 'exchange' | 'account' | 'kline' | 'order';
-	future: 'exchange' | 'account' | 'kline' | 'order';
-	margin: 'exchange' | 'account' | 'kline' | 'order';
+	spot: 'exchange' | 'account' | 'candle' | 'order';
+	future: 'exchange' | 'account' | 'candle' | 'order';
+	margin: 'exchange' | 'account' | 'candle' | 'order';
 };
 
 export type IBinance = AllEntities<IBinanceMap>;
