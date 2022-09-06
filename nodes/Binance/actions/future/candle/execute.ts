@@ -19,7 +19,7 @@ export async function execute(
 	const startTime = (startTimeString && new Date(startTimeString).getTime()) || undefined;
 	const endTime = (endTimeString && new Date(endTimeString).getTime()) || undefined;
 
-	const response = await binanceClient.futuresCandles({
+	const candles = await binanceClient.futuresCandles({
 		symbol,
 		interval,
 		limit,
@@ -27,5 +27,14 @@ export async function execute(
 		endTime,
 	});
 
-	return this.helpers.returnJsonArray(response as any);
+	const executionData = candles.map((candle) => ({
+		...candle,
+		open: Number(candle.open),
+		close: Number(candle.close),
+		low: Number(candle.low),
+		high: Number(candle.high),
+		volume: Number(candle.volume),
+	}));
+
+	return this.helpers.returnJsonArray(executionData);
 }

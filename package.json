@@ -38,7 +38,8 @@
 		],
 		"nodes": [
 			"dist/nodes/Binance/Binance.node.js",
-			"dist/nodes/Binance/BinanceTrigger.node.js"
+			"dist/nodes/Binance/BinanceTrigger.node.js",
+			"dist/nodes/Indicator/Indicator.node.js"
 		]
 	},
 	"devDependencies": {
@@ -56,6 +57,7 @@
 		"typescript": "~4.7.4"
 	},
 	"dependencies": {
-		"binance-api-node": "^0.11.46"
+		"binance-api-node": "^0.11.46",
+		"technicalindicators": "^3.1.0"
 	}
 }
