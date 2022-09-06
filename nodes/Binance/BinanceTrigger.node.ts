@@ -4,7 +4,6 @@ import {
 	INodeType,
 	INodeTypeDescription,
 } from 'n8n-workflow';
-import { intervalProperty, symbolProperty } from './properties';
 
 export class BinanceTrigger implements INodeType {
 	description: INodeTypeDescription = {
@@ -20,7 +19,7 @@ export class BinanceTrigger implements INodeType {
 			name: 'Binance Trigger',
 		},
 		group: ['Binance'],
-		properties: [symbolProperty, intervalProperty],
+		properties: [],
 	};
 
 	async execute() {

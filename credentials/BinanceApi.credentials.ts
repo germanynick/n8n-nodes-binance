@@ -7,7 +7,7 @@ import {
 
 export class BinanceApi implements ICredentialType {
 	name = 'binanceApi';
-	displayName = 'Binance  API';
+	displayName = 'Binance API';
 	properties: INodeProperties[] = [
 		// The credentials to get from user and save encrypted.
 		// Properties can be defined exactly in the same way
