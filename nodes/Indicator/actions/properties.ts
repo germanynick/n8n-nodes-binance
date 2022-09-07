@@ -4,6 +4,7 @@ import * as sma from './sma';
 import * as vwap from './vwap';
 import * as ichimoku from './ichimoku';
 import * as stochRSI from './stochRSI';
+import * as macd from './macd';
 
 export const properties: INodeProperties[] = [
 	{
@@ -48,4 +49,5 @@ export const properties: INodeProperties[] = [
 	...vwap.properties,
 	...ichimoku.properties,
 	...stochRSI.properties,
+	...macd.properties,
 ];
