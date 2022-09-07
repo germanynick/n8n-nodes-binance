@@ -4,6 +4,7 @@ import * as order from './order';
 import * as candle from './candle';
 import * as exchange from './exchange';
 import * as leverage from './leverage';
+import * as position from './position';
 
 export const properties: INodeProperties[] = [
 	{
@@ -47,6 +48,12 @@ export const properties: INodeProperties[] = [
 				action: 'Buy or sell a cryptocurrency',
 				description: 'Buy or sell a cryptocurrency',
 			},
+			{
+				name: 'Position',
+				value: 'position',
+				action: 'Get position info',
+				description: 'Get position info',
+			},
 		],
 		default: 'account',
 	},
@@ -55,4 +62,5 @@ export const properties: INodeProperties[] = [
 	...candle.properties,
 	...exchange.properties,
 	...leverage.properties,
+	...position.properties,
 ];
