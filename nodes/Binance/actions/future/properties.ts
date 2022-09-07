@@ -2,6 +2,8 @@ import { INodeProperties } from 'n8n-workflow';
 
 import * as order from './order';
 import * as candle from './candle';
+import * as exchange from './exchange';
+import * as leverage from './leverage';
 
 export const properties: INodeProperties[] = [
 	{
@@ -34,6 +36,12 @@ export const properties: INodeProperties[] = [
 				action: 'Get the exchange',
 			},
 			{
+				name: 'Leverage',
+				value: 'leverage',
+				action: 'Update leverage',
+				description: 'Update leverage',
+			},
+			{
 				name: 'Order',
 				value: 'order',
 				action: 'Buy or sell a cryptocurrency',
@@ -45,4 +53,6 @@ export const properties: INodeProperties[] = [
 
 	...order.properties,
 	...candle.properties,
+	...exchange.properties,
+	...leverage.properties,
 ];
