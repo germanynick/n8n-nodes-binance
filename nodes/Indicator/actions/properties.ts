@@ -3,6 +3,7 @@ import { INodeProperties } from 'n8n-workflow';
 import * as sma from './sma';
 import * as vwap from './vwap';
 import * as ichimoku from './ichimoku';
+import * as stochRSI from './stochRSI';
 
 export const properties: INodeProperties[] = [
 	{
@@ -46,4 +47,5 @@ export const properties: INodeProperties[] = [
 	...sma.properties,
 	...vwap.properties,
 	...ichimoku.properties,
+	...stochRSI.properties,
 ];
