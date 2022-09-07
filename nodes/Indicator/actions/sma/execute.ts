@@ -9,7 +9,7 @@ export async function execute(
 	const json = this.getNodeParameter('json', index) as string;
 	const period = this.getNodeParameter('period', index) as number;
 
-	const values = JSON.parse(json);
+	const values = typeof json === 'string' ? JSON.parse(json) : json;
 
 	const sma = new SMA({ values, period });
 

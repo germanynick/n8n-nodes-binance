@@ -3,6 +3,7 @@ import { INodeExecutionData } from 'n8n-workflow';
 
 import * as sma from './sma';
 import * as vwap from './vwap';
+import * as ichimoku from './ichimoku';
 
 export async function execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 	const items = this.getInputData();
@@ -19,6 +20,8 @@ export async function execute(this: IExecuteFunctions): Promise<INodeExecutionDa
 					? await sma.execute.call(this, index)
 					: operation === 'vwap'
 					? await vwap.execute.call(this, index)
+					: operation === 'ichimoku'
+					? await ichimoku.execute.call(this, index)
 					: [];
 
 			const dataWithMeta: INodeExecutionData[] = data.map((value) => ({

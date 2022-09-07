@@ -11,10 +11,10 @@ export async function execute(
 	const highString = this.getNodeParameter('high', index) as string;
 	const volumeString = this.getNodeParameter('volume', index) as string;
 
-	const close = JSON.parse(closeString);
-	const low = JSON.parse(lowString);
-	const high = JSON.parse(highString);
-	const volume = JSON.parse(volumeString);
+	const close = typeof closeString === 'string' ? JSON.parse(closeString) : closeString;
+	const low = typeof lowString === 'string' ? JSON.parse(lowString) : lowString;
+	const high = typeof highString === 'string' ? JSON.parse(highString) : highString;
+	const volume = typeof volumeString === 'string' ? JSON.parse(volumeString) : volumeString;
 
 	const vwap = new VWAP({ close, low, high, volume });
 
