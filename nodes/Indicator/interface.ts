@@ -1,7 +1,7 @@
 import { AllEntities, Entity, PropertiesOf } from 'n8n-workflow';
 
 type IIndicatorMap = {
-	base: 'sma' | 'vwap' | 'ichimoku' | 'stochRSI' | 'macd';
+	base: 'sma' | 'vwap' | 'ichimoku' | 'stochRSI' | 'macd' | 'bb';
 };
 
 export type IIndicator = AllEntities<IIndicatorMap>;

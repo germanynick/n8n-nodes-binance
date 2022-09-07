@@ -5,6 +5,7 @@ import * as vwap from './vwap';
 import * as ichimoku from './ichimoku';
 import * as stochRSI from './stochRSI';
 import * as macd from './macd';
+import * as bb from './bb';
 
 export const properties: INodeProperties[] = [
 	{
@@ -21,6 +22,10 @@ export const properties: INodeProperties[] = [
 		type: 'options',
 		noDataExpression: true,
 		options: [
+			{
+				name: 'Bollinger Bands (BB)',
+				value: 'bb',
+			},
 			{
 				name: 'Ichimoku Cloud',
 				value: 'ichimoku',
@@ -50,4 +55,5 @@ export const properties: INodeProperties[] = [
 	...ichimoku.properties,
 	...stochRSI.properties,
 	...macd.properties,
+	...bb.properties,
 ];

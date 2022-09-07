@@ -6,6 +6,7 @@ import * as vwap from './vwap';
 import * as ichimoku from './ichimoku';
 import * as stockRSI from './stochRSI';
 import * as macd from './macd';
+import * as bb from './bb';
 
 export async function execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 	const items = this.getInputData();
@@ -28,6 +29,8 @@ export async function execute(this: IExecuteFunctions): Promise<INodeExecutionDa
 					? await stockRSI.execute.call(this, index)
 					: operation === 'macd'
 					? await macd.execute.call(this, index)
+					: operation === 'bb'
+					? await bb.execute.call(this, index)
 					: [];
 
 			const dataWithMeta: INodeExecutionData[] = data.map((value) => ({

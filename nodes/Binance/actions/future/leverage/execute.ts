@@ -22,7 +22,7 @@ export async function execute(
 		}
 
 		// -4046 NO_NEED_TO_CHANGE_MARGIN_TYPE
-		LoggerProxy.warn(error);
+		LoggerProxy.warn(`${symbol} ${error}`);
 	}
 
 	return this.helpers.returnJsonArray({ ...response, marginType });
