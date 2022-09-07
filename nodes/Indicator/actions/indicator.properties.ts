@@ -6,6 +6,7 @@ import * as ichimoku from './ichimoku';
 import * as stochRSI from './stochRSI';
 import * as macd from './macd';
 import * as bb from './bb';
+import * as vp from './vp';
 
 export const properties: INodeProperties[] = [
 	{
@@ -43,6 +44,10 @@ export const properties: INodeProperties[] = [
 				value: 'stochRSI',
 			},
 			{
+				name: 'Volume Profile (VP)',
+				value: 'vp',
+			},
+			{
 				name: 'Volume Weighted Average Price (VWAP)',
 				value: 'vwap',
 			},
@@ -56,4 +61,5 @@ export const properties: INodeProperties[] = [
 	...stochRSI.properties,
 	...macd.properties,
 	...bb.properties,
+	...vp.properties,
 ];
