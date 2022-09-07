@@ -1,2 +1,2 @@
-export * from './execute';
-export * from './properties';
+export * from './position.execute';
+export * from './position.properties';

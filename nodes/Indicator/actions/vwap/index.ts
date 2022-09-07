@@ -1,2 +1,2 @@
-export * from './execute';
-export * from './properties';
+export * from './vwap.execute';
+export * from './vwap.properties';

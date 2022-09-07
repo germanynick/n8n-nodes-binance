@@ -1,2 +1,2 @@
-export * from './execute';
-export * from './properties';
+export * from './exchange.execute';
+export * from './exchange.properties';

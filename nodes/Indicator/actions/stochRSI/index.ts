@@ -1,2 +1,2 @@
-export * from './properties';
-export * from './execute';
+export * from './stochRSI.properties';
+export * from './stochRSI.execute';

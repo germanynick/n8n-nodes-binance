@@ -1,2 +1,2 @@
-export * from './execute';
-export * from './properties';
+export * from './sma.execute';
+export * from './sma.properties';

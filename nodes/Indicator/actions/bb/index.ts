@@ -1,2 +1,2 @@
-export * from './execute';
-export * from './properties';
+export * from './bb.execute';
+export * from './bb.properties';

@@ -3,8 +3,8 @@ import { IExecuteFunctions } from 'n8n-core';
 
 import { loadOptions } from './methods';
 
-import { properties } from './actions/properties';
-import { execute } from './actions/execute';
+import { properties } from './actions/binance.properties';
+import { execute } from './actions/binance.execute';
 
 export class Binance implements INodeType {
 	description: INodeTypeDescription = {
