@@ -18,6 +18,12 @@ export async function execute(
 		return this.helpers.returnJsonArray(order as any);
 	}
 
+	if (side === 'GET') {
+		const orders = await binanceClient.futuresOpenOrders({ symbol });
+
+		return this.helpers.returnJsonArray(orders as any);
+	}
+
 	const quantity = this.getNodeParameter('quantity', index) as string;
 	const price = this.getNodeParameter('price', index) as string;
 
