@@ -5,6 +5,7 @@ import * as candle from './candle';
 import * as exchange from './exchange';
 import * as leverage from './leverage';
 import * as position from './position';
+import * as account from './account';
 
 export const properties: INodeProperties[] = [
 	{
@@ -63,4 +64,5 @@ export const properties: INodeProperties[] = [
 	...exchange.properties,
 	...leverage.properties,
 	...position.properties,
+	...account.properties,
 ];
