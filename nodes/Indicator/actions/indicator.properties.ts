@@ -7,6 +7,7 @@ import * as stochRSI from './stochRSI';
 import * as macd from './macd';
 import * as bb from './bb';
 import * as vp from './vp';
+import * as heikinAshi from './heikin-ashi';
 
 export const properties: INodeProperties[] = [
 	{
@@ -26,6 +27,10 @@ export const properties: INodeProperties[] = [
 			{
 				name: 'Bollinger Bands (BB)',
 				value: 'bb',
+			},
+			{
+				name: 'Heikin Ashi',
+				value: 'heikin-ashi',
 			},
 			{
 				name: 'Ichimoku Cloud',
@@ -62,4 +67,5 @@ export const properties: INodeProperties[] = [
 	...macd.properties,
 	...bb.properties,
 	...vp.properties,
+	...heikinAshi.properties,
 ];
