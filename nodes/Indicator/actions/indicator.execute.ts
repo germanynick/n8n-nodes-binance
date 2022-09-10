@@ -35,7 +35,7 @@ export async function execute(this: IExecuteFunctions): Promise<INodeExecutionDa
 					? await bb.execute.call(this, index)
 					: operation === 'vp'
 					? await vp.execute.call(this, index)
-					: operation === 'henkin-ashi'
+					: operation === 'heikin-ashi'
 					? await heikinAshi.execute.call(this, index)
 					: [];
 
