@@ -55,4 +55,14 @@ export const properties: IBinanceFutureProperties = [
 		},
 		default: 0,
 	},
+	{
+		displayName: 'Reduce Only',
+		name: 'reduceOnly',
+		type: 'boolean',
+		displayOptions: {
+			show: { resource: ['future'], operation: ['order'] },
+			hide: { side: ['CLEAR', 'GET'] },
+		},
+		default: false,
+	},
 ];
