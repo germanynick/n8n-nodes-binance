@@ -6,6 +6,7 @@ import * as exchange from './exchange';
 import * as leverage from './leverage';
 import * as position from './position';
 import * as account from './account';
+import * as statistics from './statistics';
 
 export const properties: INodeProperties[] = [
 	{
@@ -55,6 +56,12 @@ export const properties: INodeProperties[] = [
 				action: 'Get position info',
 				description: 'Get position info',
 			},
+			{
+				name: 'Statistics',
+				value: 'statistics',
+				action: 'Get daily statistics',
+				description: 'Get daily statistics',
+			},
 		],
 		default: 'account',
 	},
@@ -65,4 +72,5 @@ export const properties: INodeProperties[] = [
 	...leverage.properties,
 	...position.properties,
 	...account.properties,
+	...statistics.properties,
 ];

@@ -2,7 +2,7 @@ import { AllEntities, Entity, PropertiesOf } from 'n8n-workflow';
 
 type IBinanceMap = {
 	spot: 'exchange' | 'account' | 'candle' | 'order';
-	future: 'exchange' | 'account' | 'candle' | 'order' | 'leverage' | 'position';
+	future: 'exchange' | 'account' | 'candle' | 'order' | 'leverage' | 'position' | 'statistics';
 	margin: 'exchange' | 'account' | 'candle' | 'order';
 };
 

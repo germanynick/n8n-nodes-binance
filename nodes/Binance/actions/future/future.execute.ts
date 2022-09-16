@@ -8,6 +8,7 @@ import * as exchange from './exchange';
 import * as leverage from './leverage';
 import * as position from './position';
 import * as account from './account';
+import * as statistics from './statistics';
 
 export async function execute(
 	this: IExecuteFunctions,
@@ -28,6 +29,8 @@ export async function execute(
 			return position.execute.call(this, index);
 		case 'account':
 			return account.execute.call(this, index);
+		case 'statistics':
+			return statistics.execute.call(this, index);
 		default:
 			return [];
 	}
