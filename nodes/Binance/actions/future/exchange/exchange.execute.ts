@@ -16,5 +16,7 @@ export async function execute(
 		? exchangeInfo.symbols.find((item) => item.symbol === symbol)
 		: exchangeInfo.symbols;
 
+	binanceClient.futuresPositionRisk();
+
 	return this.helpers.returnJsonArray(executionData as any);
 }

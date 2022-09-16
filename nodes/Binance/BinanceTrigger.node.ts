@@ -1,10 +1,8 @@
-import {
-	ILoadOptionsFunctions,
-	INodePropertyOptions,
-	INodeType,
-	INodeTypeDescription,
-} from 'n8n-workflow';
-
+import { ITriggerFunctions } from 'n8n-core';
+import { INodeType, INodeTypeDescription, ITriggerResponse } from 'n8n-workflow';
+import { trigger } from './triggers/binance.trigger';
+import { properties } from './triggers/binance.properties';
+import { loadOptions } from './methods';
 export class BinanceTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Binance Trigger',
@@ -18,11 +16,14 @@ export class BinanceTrigger implements INodeType {
 		defaults: {
 			name: 'Binance Trigger',
 		},
-		group: ['Binance'],
-		properties: [],
+		group: ['trigger', 'Binance'],
+		credentials: [{ name: 'binanceApi', required: true }],
+		properties: properties,
 	};
 
-	async execute() {
-		return [];
+	async trigger(this: ITriggerFunctions): Promise<ITriggerResponse | undefined> {
+		return trigger.call(this);
 	}
+
+	methods = { loadOptions };
 }
