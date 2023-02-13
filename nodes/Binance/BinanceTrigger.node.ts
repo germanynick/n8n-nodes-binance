@@ -18,7 +18,7 @@ export class BinanceTrigger implements INodeType {
 		},
 		group: ['trigger', 'Binance'],
 		credentials: [{ name: 'binanceApi', required: true }],
-		properties: properties,
+		properties,
 	};
 
 	async trigger(this: ITriggerFunctions): Promise<ITriggerResponse | undefined> {
