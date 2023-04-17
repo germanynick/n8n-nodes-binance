@@ -33,4 +33,22 @@ export const properties: INodeProperties[] = [
 		options: [],
 		default: '',
 	},
+	{
+		displayName: 'Percent Threshold',
+		name: 'percentThreshold',
+		type: 'number',
+		default: 0,
+	},
+	{
+		displayName: 'TimeThreshold',
+		name: 'timeThreshold',
+		type: 'number',
+		default: 0,
+	},
+	{
+		displayName: 'Is Final',
+		name: 'isFinal',
+		type: 'boolean',
+		default: false,
+	},
 ];

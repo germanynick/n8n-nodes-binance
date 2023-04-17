@@ -10,11 +10,7 @@ export async function execute(
 	const binanceClient = createBinance(credentials);
 	const symbol = this.getNodeParameter('symbol', index) as string;
 
-	const exchangeInfo = await binanceClient.futuresExchangeInfo();
-
-	const executionData = symbol
-		? exchangeInfo.symbols.find((item) => item.symbol === symbol)
-		: exchangeInfo.symbols;
+	const executionData = await binanceClient.exchangeInfo({ symbol });
 
 	return this.helpers.returnJsonArray(executionData as any);
 }

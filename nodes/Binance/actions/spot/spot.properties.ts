@@ -1,6 +1,9 @@
 import { INodeProperties } from 'n8n-workflow';
 
 import * as order from './order';
+import * as account from './account';
+import * as candle from './candle';
+import * as exchange from './exchange';
 
 export const properties: INodeProperties[] = [
 	{
@@ -43,4 +46,7 @@ export const properties: INodeProperties[] = [
 	},
 
 	...order.properties,
+	...account.properties,
+	...candle.properties,
+	...exchange.properties,
 ];

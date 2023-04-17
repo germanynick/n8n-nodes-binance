@@ -8,13 +8,8 @@ export async function execute(
 ): Promise<INodeExecutionData[]> {
 	const credentials = await this.getCredentials('binanceApi', index);
 	const binanceClient = createBinance(credentials);
-	const symbol = this.getNodeParameter('symbol', index) as string;
 
-	const exchangeInfo = await binanceClient.futuresExchangeInfo();
+	const account = await binanceClient.accountInfo();
 
-	const executionData = symbol
-		? exchangeInfo.symbols.find((item) => item.symbol === symbol)
-		: exchangeInfo.symbols;
-
-	return this.helpers.returnJsonArray(executionData as any);
+	return this.helpers.returnJsonArray(account as any);
 }
