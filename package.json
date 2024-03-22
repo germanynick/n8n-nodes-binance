@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-binance",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "N8N nodes for Binance Exchange",
 	"keywords": [
 		"n8n-community-node-package"
@@ -49,7 +49,7 @@
 		"eslint": "^8.34.0",
 		"eslint-plugin-n8n-nodes-base": "^1.12.1",
 		"gulp": "^4.0.2",
-		"n8n": "0.215.1",
+		"n8n": "1.32.2",
 		"n8n-core": "^0.154.1",
 		"n8n-workflow": "^0.136.1",
 		"nodemon": "^2.0.20",
