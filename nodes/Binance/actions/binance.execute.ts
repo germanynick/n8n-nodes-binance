@@ -3,6 +3,7 @@ import { IExecuteFunctions } from 'n8n-core';
 
 import * as spot from './spot';
 import * as future from './future';
+import * as custom from './custom';
 
 export async function execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 	const items = this.getInputData();
@@ -18,6 +19,8 @@ export async function execute(this: IExecuteFunctions): Promise<INodeExecutionDa
 					? await spot.execute.call(this, index)
 					: resource === 'future'
 					? await future.execute.call(this, index)
+					: resource === 'custom'
+					? await custom.execute.call(this, index)
 					: [];
 
 			const dataWithMeta: INodeExecutionData[] = data.map((value) => ({

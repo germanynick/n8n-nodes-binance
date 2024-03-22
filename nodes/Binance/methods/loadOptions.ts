@@ -19,6 +19,19 @@ export async function getSymbols(this: ILoadOptionsFunctions): Promise<INodeProp
 	return options;
 }
 
+export async function getCustomFunctions(
+	this: ILoadOptionsFunctions,
+): Promise<INodePropertyOptions[]> {
+	const credentials = await this.getCredentials('binanceApi');
+	const binanceClient = createBinance(credentials);
+
+	const functions = Object.keys(binanceClient as any).filter(
+		(key) => typeof (binanceClient as any)[key] === 'function',
+	);
+
+	return functions.map((name) => ({ name, value: name }));
+}
+
 export async function getIntervals(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	return [
 		'1m',

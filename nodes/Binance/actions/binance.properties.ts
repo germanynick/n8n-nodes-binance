@@ -1,6 +1,7 @@
 import { INodeProperties } from 'n8n-workflow';
 import * as spot from './spot';
 import * as future from './future';
+import * as custom from './custom';
 
 export const properties: INodeProperties[] = [
 	{
@@ -21,9 +22,14 @@ export const properties: INodeProperties[] = [
 				name: 'Margin',
 				value: 'margin',
 			},
+			{
+				name: 'Custom',
+				value: 'custom',
+			},
 		],
 		default: 'spot',
 	},
 	...spot.properties,
 	...future.properties,
+	...custom.properties,
 ];
