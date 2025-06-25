@@ -45,17 +45,6 @@ export const properties: IBinanceFutureProperties = [
 		default: 0,
 	},
 	{
-		displayName: 'Price',
-		name: 'price',
-		type: 'number',
-		required: true,
-		displayOptions: {
-			show: { resource: ['future'], operation: ['order'] },
-			hide: { side: ['CLEAR', 'GET'] },
-		},
-		default: 0,
-	},
-	{
 		displayName: 'Reduce Only',
 		name: 'reduceOnly',
 		type: 'boolean',

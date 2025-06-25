@@ -25,15 +25,13 @@ export async function execute(
 	}
 
 	const quantity = this.getNodeParameter('quantity', index) as string;
-	const price = this.getNodeParameter('price', index) as string;
 	const reduceOnly = this.getNodeParameter('reduceOnly', index) as boolean;
 
 	const order = await binanceClient.futuresOrder({
 		symbol,
 		quantity,
-		price,
 		side: side as OrderSide_LT,
-		type: 'LIMIT',
+		type: 'MARKET',
 		timeInForce: 'GTC',
 		reduceOnly: `${reduceOnly}`,
 	});
