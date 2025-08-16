@@ -23,7 +23,7 @@ export const properties: IBinanceFutureProperties = [
 		type: 'options',
 		required: true,
 		description:
-			'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>',
+			'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
 		displayOptions: {
 			show: { resource: ['future'], operation: ['order'] },
 		},
@@ -80,6 +80,7 @@ export const properties: IBinanceFutureProperties = [
 			hide: { side: ['CLEAR', 'GET'] },
 		},
 		default: false,
+		description: 'Whether this is a reduce-only order',
 	},
 	{
 		displayName: 'Take Profit (%)',
@@ -90,7 +91,7 @@ export const properties: IBinanceFutureProperties = [
 			show: { resource: ['future'], operation: ['order'] },
 			hide: { side: ['CLEAR', 'GET'] },
 		},
-		description: 'Take profit in percent (from entry price). 0 = disabled',
+		description: 'Take profit in percent (from entry price). 0 = disabled.',
 	},
 	{
 		displayName: 'Stop Loss (%)',
@@ -101,7 +102,7 @@ export const properties: IBinanceFutureProperties = [
 			show: { resource: ['future'], operation: ['order'] },
 			hide: { side: ['CLEAR', 'GET'] },
 		},
-		description: 'Stop loss in percent (from entry price). 0 = disabled',
+		description: 'Stop loss in percent (from entry price). 0 = disabled.',
 	},
 	{
 		displayName: 'Auto OCO',
@@ -112,10 +113,11 @@ export const properties: IBinanceFutureProperties = [
 			show: { resource: ['future'], operation: ['order'] },
 			hide: { side: ['CLEAR', 'GET'] },
 		},
-		description: 'If enabled, the node will monitor and cancel the paired TP/SL order after one triggers (short polling).',
+		description:
+			'If enabled, the node will monitor and cancel the paired TP/SL order after one triggers (short polling)',
 	},
 	{
-		displayName: 'Auto OCO Timeout (seconds)',
+		displayName: 'Auto OCO Timeout (Seconds)',
 		name: 'autoOcoTimeout',
 		type: 'number',
 		default: 30,
@@ -123,7 +125,7 @@ export const properties: IBinanceFutureProperties = [
 			show: { resource: ['future'], operation: ['order'], autoOco: [true] },
 			hide: { side: ['CLEAR', 'GET'] },
 		},
-		description: 'How many seconds to wait for one conditional order to trigger before timing out.',
+		description: 'How many seconds to wait for one conditional order to trigger before timing out',
 	},
 	{
 		displayName: 'Working Type',
@@ -138,6 +140,6 @@ export const properties: IBinanceFutureProperties = [
 			show: { resource: ['future'], operation: ['order'] },
 			hide: { side: ['CLEAR', 'GET'] },
 		},
-		description: 'Price to use for trigger evaluation (MARK_PRICE is recommended).',
+		description: 'Price to use for trigger evaluation (MARK_PRICE is recommended)',
 	},
 ];

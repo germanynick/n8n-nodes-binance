@@ -123,7 +123,9 @@ export async function execute(
 
 	// If we have an entry price and TP/SL requested — create conditional orders
 	const entryPriceResolved =
-		marketOrder && (marketOrder.avgPrice || (marketOrder.fills && marketOrder.fills.length ? marketOrder.fills[0].price : undefined));
+		marketOrder &&
+		(marketOrder.avgPrice ||
+			(marketOrder.fills && marketOrder.fills.length ? marketOrder.fills[0].price : undefined));
 
 	let entryPriceNum: number | undefined = undefined;
 	if (entryPriceResolved) {
@@ -137,10 +139,14 @@ export async function execute(
 		let slPrice: number | undefined = undefined;
 
 		if (tpPercent > 0) {
-			tpPrice = isBuy ? entryPriceNum * (1 + tpPercent / 100) : entryPriceNum * (1 - tpPercent / 100);
+			tpPrice = isBuy
+				? entryPriceNum * (1 + tpPercent / 100)
+				: entryPriceNum * (1 - tpPercent / 100);
 		}
 		if (slPercent > 0) {
-			slPrice = isBuy ? entryPriceNum * (1 - slPercent / 100) : entryPriceNum * (1 + slPercent / 100);
+			slPrice = isBuy
+				? entryPriceNum * (1 - slPercent / 100)
+				: entryPriceNum * (1 + slPercent / 100);
 		}
 
 		const oppositeSide = isBuy ? 'SELL' : 'BUY';
@@ -158,7 +164,7 @@ export async function execute(
 				} as any);
 			} catch (e: any) {
 				// capture error, but continue attempting SL
-				takeProfitOrder = { error: (e && e.message) ? e.message : e };
+				takeProfitOrder = { error: e && e.message ? e.message : e };
 			}
 		}
 
@@ -174,15 +180,19 @@ export async function execute(
 					workingType,
 				} as any);
 			} catch (e: any) {
-				stopLossOrder = { error: (e && e.message) ? e.message : e };
+				stopLossOrder = { error: e && e.message ? e.message : e };
 			}
 		}
 
 		// Auto OCO via short polling of open orders
 		if (autoOco && (takeProfitOrder || stopLossOrder)) {
 			const start = Date.now();
-			const tpId = takeProfitOrder && (takeProfitOrder.orderId || takeProfitOrder.clientOrderId || takeProfitOrder.orderId);
-			const slId = stopLossOrder && (stopLossOrder.orderId || stopLossOrder.clientOrderId || stopLossOrder.orderId);
+			const tpId =
+				takeProfitOrder &&
+				(takeProfitOrder.orderId || takeProfitOrder.clientOrderId || takeProfitOrder.orderId);
+			const slId =
+				stopLossOrder &&
+				(stopLossOrder.orderId || stopLossOrder.clientOrderId || stopLossOrder.orderId);
 			let otherToCancel: any = null;
 			let handled = false;
 
@@ -214,7 +224,7 @@ export async function execute(
 					await binanceClient.futuresCancelOrder({ symbol, orderId: otherToCancel } as any);
 					autoOcoResult = { status: 'cancelled', cancelledOrderId: otherToCancel };
 				} catch (e: any) {
-					autoOcoResult = { status: 'error', error: (e && e.message) ? e.message : e };
+					autoOcoResult = { status: 'error', error: e && e.message ? e.message : e };
 				}
 			} else {
 				autoOcoResult = { status: 'timeout' };
