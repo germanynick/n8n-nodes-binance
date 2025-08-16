@@ -114,7 +114,7 @@ export const properties: IBinanceFutureProperties = [
 			hide: { side: ['CLEAR', 'GET'] },
 		},
 		description:
-			'If enabled, the node will monitor and cancel the paired TP/SL order after one triggers (short polling)',
+			'Whether to enable auto OCO (One Cancels Other). If enabled, the node will monitor and cancel the paired TP/SL order after one triggers (short polling)',
 	},
 	{
 		displayName: 'Auto OCO Timeout (Seconds)',
