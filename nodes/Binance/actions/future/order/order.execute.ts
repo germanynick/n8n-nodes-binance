@@ -27,13 +27,19 @@ export async function execute(
 		return this.helpers.returnJsonArray(orders as any);
 	}
 
+	// read orderType early so we only request parameters that exist for that type
+	const orderType = (this.getNodeParameter('orderType', index) as string) || 'LIMIT';
+
 	// common parameters
 	const quantity = this.getNodeParameter('quantity', index) as any;
-	const price = this.getNodeParameter('price', index) as any;
+	// only read price when orderType is LIMIT (price field may be hidden for MARKET and cause an error)
+	let price: any = undefined;
+	if (orderType === 'LIMIT') {
+		price = this.getNodeParameter('price', index) as any;
+	}
 	const reduceOnly = this.getNodeParameter('reduceOnly', index) as boolean;
 
-	// new parameters per TЗ
-	const orderType = (this.getNodeParameter('orderType', index) as string) || 'LIMIT';
+	// new parameters per ТЗ
 	const tpPercent = (this.getNodeParameter('tpPercent', index) as number) || 0;
 	const slPercent = (this.getNodeParameter('slPercent', index) as number) || 0;
 	const autoOco = (this.getNodeParameter('autoOco', index) as boolean) ?? true;
@@ -106,7 +112,7 @@ export async function execute(
 			]);
 		}
 	} else {
-		// LIMIT (existing behaviour)
+		// LIMIT (existing behaviour) — price is read above only when orderType === 'LIMIT'
 		marketOrder = await binanceClient.futuresOrder({
 			symbol,
 			quantity: String(quantity),
@@ -114,7 +120,7 @@ export async function execute(
 			side: side as OrderSide_LT,
 			type: 'LIMIT',
 			timeInForce: 'GTC',
-			reduceOnly: `${reduceOnly}`,
+			reduceOnly: reduceOnly,
 		});
 		// For LIMIT, binance may not provide avgPrice until filled — we will not attempt TP/SL here
 		// unless you want behavior: create conditional orders immediately using price param.
