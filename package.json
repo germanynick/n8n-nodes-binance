@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-binance",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "N8N nodes for Binance Exchange",
 	"keywords": [
 		"n8n-community-node-package"
