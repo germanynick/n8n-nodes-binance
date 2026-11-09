@@ -62,5 +62,8 @@
 		"binance-api-node": "^0.12.3",
 		"technicalindicators": "^3.1.0",
 		"typescript": "~4.9.5"
+	},
+	"overrides": {
+		"tar": "7.5.22"
 	}
 }
